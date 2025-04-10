@@ -1,0 +1,12 @@
+services:
+    excalidraw:
+        ports:
+            - '8099:80'  # 可以更改8099端口为自己想要的端口
+        environment:
+            - TZ=Asia/Shanghai
+            - PUID=1000
+            - PGID=1000
+        volumes:
+            - './data:/app/web'
+        #restart: unless-stopped
+        image: 'excalidraw/excalidraw:latest'

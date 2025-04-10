@@ -1,0 +1,8 @@
+services:
+    jupyter:
+        image: 'quay.io/jupyter/scipy-notebook:2024-05-27'
+        container_name: scipy-notebook
+        ports:
+            - '8888:8888'
+        volumes:
+           - './data:/home/jovyan'

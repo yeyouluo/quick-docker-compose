@@ -1,0 +1,9 @@
+services:
+  kkfileview:
+    image: wangbowen/kkfileview:4.4.0
+    container_name: kkfileview
+    ports:
+      - 8012:8012
+    volumes:
+      - ./log:/opt/kkFileView-4.4.0/log
+      - ./file:/opt/kkFileView-4.4.0/file
