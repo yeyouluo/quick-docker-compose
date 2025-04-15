@@ -1,0 +1,28 @@
+services:
+    prometheus:
+        container_name: prometheus
+        volumes:
+            - './prometheus/etc/prometheus.yml:/etc/prometheus/prometheus.yml'
+            - './prometheus/etc/basic_auth.yaml:/etc/prometheus/basic_auth.yaml'
+            - './prometheus/data:/prometheus'
+        ports:
+            - '9090:9090'
+        image: 'bitnami/prometheus:latest'        
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yml'
+            - '--web.enable-admin-api'
+            - '--web.enable-lifecycle'
+            - '--web.config.file=/etc/prometheus/basic_auth.yaml'
+        restart: always    
+    grafana:
+        container_name: grafana
+        image: grafana/grafana
+        ports:
+            - '3000:3000'        
+        volumes:
+            - './grafana/:/var/lib/grafana/'
+        environment:
+            - GF_SECURITY_ADMIN_USER=admin  # 设置 Grafana 管理员用户名
+            - GF_SECURITY_ADMIN_PASSWORD=grafana123  # 设置 Grafana 管理员密码
+            - GF_USERS_ALLOW_SIGN_UP=false  # 禁止用户注册    
+        restart: unless-stopped
