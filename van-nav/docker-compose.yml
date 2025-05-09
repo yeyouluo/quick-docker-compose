@@ -1,0 +1,9 @@
+services:
+    van-nav:
+        image: mereith/van-nav:latest
+        container_name: tools
+        restart: always
+        ports:
+            - 6412:6412
+        volumes:
+            - ./data:/app/data
