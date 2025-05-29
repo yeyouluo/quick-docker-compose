@@ -1,0 +1,7 @@
+services:
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:latest
+    ports:
+      - "8978:8978"
+    volumes:
+      - ./workspace:/opt/cloudbeaver/workspace
