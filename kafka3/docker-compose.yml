@@ -1,0 +1,13 @@
+services:
+    kafka:
+        image: docker.io/apache/kafka:3.8.1
+        container_name: kafka
+        stdin_open: true
+        tty: true
+        restart: always
+        ports:
+            - 9092:9092
+        volumes:
+            - ./data:/var/lib/kafka/data
+            #- /etc/kafka/secrets:/etc/kafka/secrets
+            #- /mnt/shared/config:/mnt/shared/config
