@@ -1,0 +1,8 @@
+services:
+    juice-shop:
+        image: docker.1panel.live/bkimminich/juice-shop:latest
+        container_name: juice-shop
+        ports:
+            - 3000:3000
+        volumes:
+            - ./data:/juice-shop/data
